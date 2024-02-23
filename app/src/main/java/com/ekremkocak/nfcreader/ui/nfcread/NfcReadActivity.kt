@@ -56,6 +56,7 @@ import java.util.Arrays
 import java.util.Calendar
 import java.util.Locale
 
+//Kimlik okuma için nfc harici bilgilerin de girilmesi gerekiyor sanırsam ve hangi servis ile yetkilendirildiğini bilmiyorum özel izne tabi olabilir??
 
 class NfcReadActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
@@ -74,7 +75,6 @@ class NfcReadActivity: AppCompatActivity() {
             val filter = arrayOf(arrayOf("android.nfc.tech.IsoDep"))
             adapter.enableForegroundDispatch(this, pendingIntent, null, filter)
         }
-
     }
 
     override fun onPause() {
