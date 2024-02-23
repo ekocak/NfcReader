@@ -37,8 +37,11 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
+
 }
+
 
 kapt {
     correctErrorTypes = true
