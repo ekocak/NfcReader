@@ -17,8 +17,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class FragmentUserList : Fragment() {
 
-    lateinit var binding : FragmentUserListBinding
-    lateinit var rcUsers: RecyclerView
+    private lateinit var binding : FragmentUserListBinding
+    private lateinit var rcUsers: RecyclerView
 
     @Inject
     lateinit var userAdapter : UsersAdapter

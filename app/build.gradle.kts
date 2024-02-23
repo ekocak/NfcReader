@@ -3,7 +3,13 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+
+
+
+
 }
+
+
 
 android {
     namespace = "com.ekremkocak.nfcreader"
@@ -17,6 +23,8 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+
     }
 
     buildTypes {
@@ -40,7 +48,24 @@ android {
         dataBinding = true
     }
 
+    androidResources {
+        noCompress  += "tflite"
+       // ignoreAssetsPattern = "!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~"
+    }
 }
+
+
+project.extra["ASSET_DIR"] = projectDir.toString() + "/src/main/assets"
+project.extra["TEST_ASSETS_DIR"] = projectDir.toString() + "/src/androidTest/assets"
+
+// Download default models; if you wish to use your own models then
+// place them in the "assets" directory and comment out this line.
+
+
+apply {
+    from("download_models.gradle")
+}
+
 
 
 kapt {
@@ -49,6 +74,9 @@ kapt {
 
 dependencies {
 
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
     val retrofitVersion = "2.9.0"
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -70,4 +98,27 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation ("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation ("com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion")
+
+
+
+    val camerax_version = "1.1.0-beta03"
+    implementation ("androidx.camera:camera-core:$camerax_version")
+
+    // CameraX Camera2 extensions
+    implementation ("androidx.camera:camera-camera2:$camerax_version")
+
+    // CameraX Lifecycle library
+    implementation ("androidx.camera:camera-lifecycle:$camerax_version")
+
+    implementation ("androidx.camera:camera-view:$camerax_version")
+
+
+    implementation ("org.tensorflow:tensorflow-lite-task-vision:0.4.0")
+    // Import the GPU delegate plugin Library for GPU inference
+    implementation ("org.tensorflow:tensorflow-lite-gpu-delegate-plugin:0.4.0")
+    implementation ("org.tensorflow:tensorflow-lite-gpu:2.9.0")
+
+    implementation("org.jmrtd:jmrtd:0.7.18")
+    implementation ("net.sf.scuba:scuba-sc-android:0.0.18")
+
 }
