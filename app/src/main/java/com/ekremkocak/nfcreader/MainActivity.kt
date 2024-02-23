@@ -3,6 +3,7 @@ package com.ekremkocak.nfcreader
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ekremkocak.nfcreader.ui.login.LoginFragment
+import com.ekremkocak.nfcreader.ui.tflow.FragmentTensorFlow
 import com.ekremkocak.nfcreader.ui.userlist.FragmentUserList
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         //NavigationUI.setupWithNavController(binding.navViewA, navController);
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FragmentUserList()).commit()
+            .replace(R.id.container, FragmentTensorFlow()).commit()
 
     }
 }
