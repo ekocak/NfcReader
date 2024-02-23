@@ -24,6 +24,7 @@ import androidx.fragment.app.Fragment
 import com.ekremkocak.nfcreader.ObjectDetectorHelper
 import com.ekremkocak.nfcreader.R
 import com.ekremkocak.nfcreader.databinding.FragmentTflowBinding
+import com.ekremkocak.nfcreader.ui.userlist.FragmentUserList
 import java.util.LinkedList
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -79,7 +80,7 @@ class FragmentTensorFlow:Fragment(), ObjectDetectorHelper.DetectorListener {
         return fragmentCameraBinding.root
     }
 
-    @SuppressLint("MissingPermission")
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -97,18 +98,17 @@ class FragmentTensorFlow:Fragment(), ObjectDetectorHelper.DetectorListener {
         }
 
         // Attach listeners to UI control widgets
-        initBottomSheetControls()
+        initTopButton()
     }
 
-    private fun initBottomSheetControls() {
-        // When clicked, lower detection score threshold floor
+    private fun initTopButton() {
 
+        fragmentCameraBinding.dismiss.setOnClickListener(View.OnClickListener {
+            activity?.supportFragmentManager!!.beginTransaction()
+                .replace(R.id.container, FragmentUserList()).commit()
+        })
     }
 
-    // Update the values displayed in the bottom sheet. Reset detector.
-    private fun updateControlsUi() {
-
-    }
 
     // Initialize CameraX, and prepare to bind the camera use cases
     private fun setUpCamera() {

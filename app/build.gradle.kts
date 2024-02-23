@@ -74,6 +74,9 @@ kapt {
 
 dependencies {
 
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
     val retrofitVersion = "2.9.0"
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -114,4 +117,8 @@ dependencies {
     // Import the GPU delegate plugin Library for GPU inference
     implementation ("org.tensorflow:tensorflow-lite-gpu-delegate-plugin:0.4.0")
     implementation ("org.tensorflow:tensorflow-lite-gpu:2.9.0")
+
+    implementation("org.jmrtd:jmrtd:0.7.18")
+    implementation ("net.sf.scuba:scuba-sc-android:0.0.18")
+
 }
