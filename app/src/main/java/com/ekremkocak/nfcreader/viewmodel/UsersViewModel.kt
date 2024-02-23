@@ -14,7 +14,7 @@ class UsersViewModel  @Inject constructor(private val repository: RetrofitReposi
     init {
         liveData = MutableLiveData()
     }
-    fun getData(body: JsonObject){
-        repository.login(liveData,"login/signIn")
+    fun getData(){
+        repository.login(liveData,"users")
     }
 }
