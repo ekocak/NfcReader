@@ -77,6 +77,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     implementation("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
+
     val retrofitVersion = "2.9.0"
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -119,6 +120,13 @@ dependencies {
     implementation ("org.tensorflow:tensorflow-lite-gpu:2.9.0")
 
     implementation("org.jmrtd:jmrtd:0.7.18")
-    implementation ("net.sf.scuba:scuba-sc-android:0.0.18")
+
+
+    implementation ("commons-io:commons-io:2.6")
+    implementation ("org.apache.commons:commons-collections4:4.4")
+    implementation ("org.apache.commons:commons-lang3:3.6")
+    testImplementation ("junit:junit:4.12")
+    androidTestImplementation ("androidx.test.ext:junit:1.1.1")
+    androidTestImplementation ("androidx.test.espresso:espresso-core:3.2.0")
 
 }

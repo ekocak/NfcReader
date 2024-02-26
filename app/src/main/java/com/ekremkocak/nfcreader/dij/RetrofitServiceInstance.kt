@@ -2,6 +2,8 @@ package com.ekremkocak.nfcreader.dij
 
 
 import com.ekremkocak.nfcreader.model.User
+import com.ekremkocak.nfcreader.ui.login.LoginResult
+import com.google.gson.JsonObject
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -12,9 +14,7 @@ interface RetrofitServiceInstance {
     suspend fun users(@Url url: String?): Response<List<User>>
 
 
+    @GET
+    suspend fun login(@Url url: String?): Response<LoginResult>
 
-    /*
-    @POST
-    suspend fun postMethod(@Url url: String?, @Header("Authorization") authKey: String?, @Body body: JsonObject?): Response<JsonObject>
-*/
 }
