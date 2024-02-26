@@ -55,7 +55,8 @@ class RetrofitRepository @Inject constructor() {
 
 
             withContext(Dispatchers.Main + handler){
-                println("response : "+response.isSuccessful)
+
+                println("response : "+ response.errorBody())
                 if (response.isSuccessful) {
                     response.body()?.let { liveData.postValue(response.body()) }
                 } else

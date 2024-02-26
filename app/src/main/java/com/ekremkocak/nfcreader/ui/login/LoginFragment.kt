@@ -76,7 +76,8 @@ class LoginFragment : Fragment() {
                     showLoginFailed(it)
                 }
                 loginResult.success?.let {
-                    updateUiWithUser(it)
+                    activity?.supportFragmentManager!!.beginTransaction()
+                        .replace(R.id.container, LoginFragment()).commit()
                 }
             })
 
