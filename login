@@ -1,1 +1,1 @@
-{"success" = true, "userDetail" : {"userName" = "Ekrem"}}
+{"success" : true, "userDetail" : {"userName" : "Ekrem"}}
