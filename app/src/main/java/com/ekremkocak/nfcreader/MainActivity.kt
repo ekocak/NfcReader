@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.container, LoginFragment()).commit()
 
 
-        startActivity(Intent(this, NfcReadActivity::class.java))
+        //startActivity(Intent(this, NfcReadActivity::class.java))
 
     }
 

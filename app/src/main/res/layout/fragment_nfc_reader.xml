@@ -7,6 +7,7 @@
 
 
     <TextView
+        android:textColor="@android:color/white"
         android:text="Kimlik Okut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,9 +64,10 @@
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/finishBtn"
         android:layout_margin="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bitir"/>
+        android:text="Bitir" />
 
 </LinearLayout>

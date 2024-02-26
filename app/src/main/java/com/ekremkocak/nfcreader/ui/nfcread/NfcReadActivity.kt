@@ -14,9 +14,11 @@ import android.os.PersistableBundle
 import android.preference.PreferenceManager
 import android.util.Base64
 import android.util.Log
+import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.ekremkocak.nfcreader.R
+import com.ekremkocak.nfcreader.databinding.FragmentNfcReaderBinding
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.commons.io.IOUtils
 import net.sf.scuba.smartcards.CardService
 import org.bouncycastle.asn1.ASN1InputStream
@@ -58,10 +60,15 @@ import java.util.Locale
 
 class NfcReadActivity: AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    private var _binding : FragmentNfcReaderBinding? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        _binding = FragmentNfcReaderBinding.inflate(layoutInflater)
+        _binding!!.finishBtn.setOnClickListener {
+            finish()
+        }
 
-        setContentView(R.layout.fragment_nfc_reader)
+        setContentView(_binding!!.root)
     }
 
     override fun onResume() {
@@ -91,6 +98,10 @@ class NfcReadActivity: AppCompatActivity() {
             println("tag : $tag")
 
 
+        }
+
+        fun finish(view : View){
+            finish()
         }
     }
 
@@ -296,6 +307,7 @@ class NfcReadActivity: AppCompatActivity() {
             null
         }
     }
+
 
 
 
