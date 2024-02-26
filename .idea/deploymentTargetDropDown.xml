@@ -5,6 +5,12 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="liabtest">
+        <State />
+      </entry>
+      <entry key="testLib">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

@@ -4,8 +4,10 @@ import android.R.attr.value
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.ekremkocak.nfcreader.ui.login.LoginFragment
 import com.ekremkocak.nfcreader.ui.nfcread.FragmentNfcRead
 import com.ekremkocak.nfcreader.ui.nfcread.NfcReadActivity
+import com.ekremkocak.nfcreader.ui.tflow.FragmentTensorFlow
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -18,10 +20,10 @@ class MainActivity : AppCompatActivity() {
 
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, FragmentNfcRead()).commit()
+            .replace(R.id.container, LoginFragment()).commit()
 
 
-        startActivity(Intent(this, NfcReadActivity::class.java))
+        //startActivity(Intent(this, NfcReadActivity::class.java))
 
     }
 

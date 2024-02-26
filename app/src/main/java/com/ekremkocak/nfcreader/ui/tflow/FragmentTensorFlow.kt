@@ -212,7 +212,7 @@ class FragmentTensorFlow:Fragment(), ObjectDetectorHelper.DetectorListener {
 
             results?.forEach{
                 it.categories.forEach{category->
-                    if (category.score>0.6f){
+                    if (category.score>0.8f){
                         fragmentCameraBinding.catchedObject.text = "Yakalanan Obje\n : ${category.label}"
                         println("deneem : ${category.label}")     }
                     }

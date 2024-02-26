@@ -1,5 +1,6 @@
 package com.ekremkocak.nfcreader.ui.nfcread
 
+import android.R.attr
 import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Intent
@@ -7,14 +8,12 @@ import android.graphics.Bitmap
 import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.nfc.tech.IsoDep
-import android.opengl.ETC1.decodeImage
 import android.os.AsyncTask
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.preference.PreferenceManager
 import android.util.Base64
 import android.util.Log
-import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.ekremkocak.nfcreader.R
@@ -25,7 +24,6 @@ import org.bouncycastle.asn1.ASN1Primitive
 import org.bouncycastle.asn1.ASN1Sequence
 import org.bouncycastle.asn1.ASN1Set
 import org.bouncycastle.asn1.x509.Certificate
-import org.jmrtd.BACKey
 import org.jmrtd.BACKeySpec
 import org.jmrtd.PassportService
 import org.jmrtd.lds.CardAccessFile
@@ -51,10 +49,10 @@ import java.security.spec.MGF1ParameterSpec
 import java.security.spec.PSSParameterSpec
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.ArrayList
 import java.util.Arrays
 import java.util.Calendar
 import java.util.Locale
+
 
 //Kimlik okuma için nfc harici bilgilerin de girilmesi gerekiyor sanırsam ve hangi servis ile yetkilendirildiğini bilmiyorum özel izne tabi olabilir??
 
@@ -83,25 +81,15 @@ class NfcReadActivity: AppCompatActivity() {
         adapter?.disableForegroundDispatch(this)
     }
 
+    @SuppressLint("MissingSuperCall")
     public override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        if (NfcAdapter.ACTION_TECH_DISCOVERED == intent.action) {
-            val tag: Tag? = intent.extras?.getParcelable(NfcAdapter.EXTRA_TAG)
-            if (tag?.techList?.contains("android.nfc.tech.IsoDep") == true) {
 
-                val passportNumber = ""
-                val expirationDate = ""
-                val birthDate = ""
-                if (!passportNumber.isNullOrEmpty() && !expirationDate.isNullOrEmpty() && !birthDate.isNullOrEmpty()) {
-                    val bacKey: BACKeySpec = BACKey(passportNumber, birthDate, expirationDate)
-                    println("okuma aaaa")
-                    ReadTask(IsoDep.get(tag), bacKey).execute()
-                    //mainLayout.visibility = View.GONE
-                    //loadingLayout.visibility = View.VISIBLE
-                } else {
-                    //Snackbar.make(passportNumberView, R.string.error_input, Snackbar.LENGTH_SHORT).show()
-                }
-            }
+        if (NfcAdapter.ACTION_TECH_DISCOVERED == intent.action) {
+            val tag: Tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG)!!
+            println("tag : $tag")
+
+
         }
     }
 
