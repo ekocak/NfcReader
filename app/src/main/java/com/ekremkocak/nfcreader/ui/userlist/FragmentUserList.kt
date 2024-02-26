@@ -25,6 +25,7 @@ class FragmentUserList : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
@@ -35,6 +36,7 @@ class FragmentUserList : Fragment() {
         binding = FragmentUserListBinding.inflate(inflater, container, false)
         rcUsers = binding.rcUsers
         rcUsers.adapter = userAdapter
+        activity?.let { userAdapter.setActivity(it) }
 
         //val layoutManager = GridLayoutManager(activity, 2)
 

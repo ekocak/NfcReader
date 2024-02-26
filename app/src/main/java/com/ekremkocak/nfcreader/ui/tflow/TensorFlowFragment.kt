@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.Toast
 import androidx.camera.core.AspectRatio
 import androidx.camera.core.Camera
@@ -25,7 +24,6 @@ import com.ekremkocak.nfcreader.ObjectDetectorHelper
 import com.ekremkocak.nfcreader.R
 import com.ekremkocak.nfcreader.databinding.FragmentTflowBinding
 import com.ekremkocak.nfcreader.ui.userlist.FragmentUserList
-import java.util.LinkedList
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -33,7 +31,7 @@ import java.util.concurrent.Executors
 import org.tensorflow.lite.task.vision.detector.Detection
 
 
-class FragmentTensorFlow:Fragment(), ObjectDetectorHelper.DetectorListener {
+class TensorFlowFragment:Fragment(), ObjectDetectorHelper.DetectorListener {
 
     private val TAG = "ObjectDetection"
 
@@ -212,7 +210,7 @@ class FragmentTensorFlow:Fragment(), ObjectDetectorHelper.DetectorListener {
 
             results?.forEach{
                 it.categories.forEach{category->
-                    if (category.score>0.8f){
+                    if (category.score>0.6f){
                         fragmentCameraBinding.catchedObject.text = "Yakalanan Obje\n : ${category.label}"
                         println("deneem : ${category.label}")     }
                     }

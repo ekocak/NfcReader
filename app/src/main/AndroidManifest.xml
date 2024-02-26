@@ -46,7 +46,6 @@
         </activity>
         <activity
             android:name=".ui.nfcread.NfcReadActivity"
-            android:launchMode="singleTask"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.nfc.action.TECH_DISCOVERED" />
@@ -62,9 +61,6 @@
                 <action android:name="android.nfc.action.TAG_DISCOVERED"/>
             </intent-filter>
 
-            <meta-data
-                android:name="android.nfc.action.TECH_DISCOVERED"
-                android:resource="@xml/techlist" />
         </activity>
     </application>
 

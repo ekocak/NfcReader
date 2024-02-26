@@ -57,6 +57,7 @@ import java.util.Locale
 //Kimlik okuma için nfc harici bilgilerin de girilmesi gerekiyor sanırsam ve hangi servis ile yetkilendirildiğini bilmiyorum özel izne tabi olabilir??
 
 class NfcReadActivity: AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
 
