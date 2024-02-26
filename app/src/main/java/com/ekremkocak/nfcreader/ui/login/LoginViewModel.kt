@@ -20,7 +20,7 @@ class LoginViewModel @Inject constructor(val loginRepository: RetrofitRepository
     val loginResult: LiveData<LoginResult> = _loginResult
 
     fun login(username: String, password: String) {
-        loginRepository.login(_loginResult, "users")
+        loginRepository.login(_loginResult, "login")
     }
 
     fun loginDataChanged(username: String, password: String) {
