@@ -18,6 +18,7 @@ import android.widget.Toast
 import com.ekremkocak.nfcreader.databinding.FragmentLoginBinding
 
 import com.ekremkocak.nfcreader.R
+import com.ekremkocak.nfcreader.ui.userlist.FragmentUserList
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -76,8 +77,9 @@ class LoginFragment : Fragment() {
                     showLoginFailed(it)
                 }
                 loginResult.success?.let {
-                    activity?.supportFragmentManager!!.beginTransaction()
-                        .replace(R.id.container, LoginFragment()).commit()
+                    if (loginResult.success == "true")
+                        activity?.supportFragmentManager!!.beginTransaction()
+                            .replace(R.id.container, FragmentUserList()).commit()
                 }
             })
 

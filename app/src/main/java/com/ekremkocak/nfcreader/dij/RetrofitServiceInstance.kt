@@ -14,7 +14,7 @@ interface RetrofitServiceInstance {
     suspend fun users(@Url url: String?): Response<List<User>>
 
 
-    @POST
+    @GET
     suspend fun login(@Url url: String?): Response<LoginResult>
 
 }

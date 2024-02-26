@@ -8,6 +8,7 @@ import com.ekremkocak.nfcreader.ui.login.LoginFragment
 import com.ekremkocak.nfcreader.ui.nfcread.FragmentNfcRead
 import com.ekremkocak.nfcreader.ui.nfcread.NfcReadActivity
 import com.ekremkocak.nfcreader.ui.tflow.FragmentTensorFlow
+import com.ekremkocak.nfcreader.ui.userlist.FragmentUserList
 import dagger.hilt.android.AndroidEntryPoint
 
 
