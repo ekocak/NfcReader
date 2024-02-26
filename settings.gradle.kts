@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "NfcReader"
 include(":app")
+include(":testLib")
+

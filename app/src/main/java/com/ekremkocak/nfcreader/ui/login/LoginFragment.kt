@@ -18,10 +18,15 @@ import android.widget.Toast
 import com.ekremkocak.nfcreader.databinding.FragmentLoginBinding
 
 import com.ekremkocak.nfcreader.R
+import com.ekremkocak.nfcreader.ui.userlist.FragmentUserList
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
-    private lateinit var loginViewModel: LoginViewModel
+
+    lateinit var loginViewModel: LoginViewModel
     private var _binding: FragmentLoginBinding? = null
 
     // This property is only valid between onCreateView and
@@ -41,7 +46,8 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
+
+        loginViewModel = ViewModelProvider(this, defaultViewModelProviderFactory)
             .get(LoginViewModel::class.java)
 
         val usernameEditText = binding.username
@@ -71,7 +77,9 @@ class LoginFragment : Fragment() {
                     showLoginFailed(it)
                 }
                 loginResult.success?.let {
-                    updateUiWithUser(it)
+                    if (loginResult.success == "true")
+                        activity?.supportFragmentManager!!.beginTransaction()
+                            .replace(R.id.container, FragmentUserList()).commit()
                 }
             })
 
