@@ -17,4 +17,5 @@ class UsersViewModel  @Inject constructor(private val repository: RetrofitReposi
     fun getData(){
         repository.users(liveData,"users")
     }
+
 }
